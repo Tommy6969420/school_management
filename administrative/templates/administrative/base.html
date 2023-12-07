@@ -4,10 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    {% block style %}{% endblock%}
+    <style>
+   
+        thead{
+            background-color: #3f87a6;
+            
+        }
+        tbody {
+            background-color: #e4f0f5;
+          }
+        td,th {
+          border: 1px solid rgb(190, 190, 190);
+          padding: 5px 10px;
+        }</style>
+        {% block style %}
+    {% endblock%}
 </head>
 <body>
     {%block body%}
     {%endblock%}
+    {% block indiv %}
+    
+    {% endblock%}
 </body>
 </html>

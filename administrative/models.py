@@ -7,8 +7,16 @@ class Subject(models.Model):
     def __str__(self):
         return f"{self.subj_name}"
 class Class(models.Model):
-    class_name=models.CharField(max_length=64)
-    section=models.CharField(max_length=64)
+    class_name=models.CharField(max_length=64,default="")
+    section_choices=[
+        ("Rose","Rose"),
+        ("Lotus","Lotus"),
+        ("Marigold","Marigold"),
+        ("A","A"),
+        ("B","B"),
+        ("C","C"),
+    ]
+    section=models.CharField(max_length=64,choices=section_choices)
     subject=models.ManyToManyField(Subject)
     def __str__(self):
         return f"{self.class_name} {self.section}"

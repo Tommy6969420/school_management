@@ -1,0 +1,30 @@
+{% extends "./base.html" %}
+
+{% block indiv %}
+
+<TABLE>
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Class</th>
+            <th>Roll</th>
+            <th>DOB</th>
+            <th>Parents Name</th>
+            <th>Contact</th>
+            </tr>
+        </thead>
+    <tbody>
+        <tr>
+            <td>{{std.id}}</td>
+            <td>{{std.std_name}}</td>
+            <td>{{std.std_class}}</td>
+            <td>{{std.roll_no}}</td>
+            <td>{{std.D_O_B}}</td>
+            <td>{{std.parents_name}}</td>
+            <td>{{std.contact}}</td>
+        </tr>
+</tbody>
+</TABLE>
+
+{% endblock %}

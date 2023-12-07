@@ -1,0 +1,31 @@
+{% extends "./base.html" %}
+
+{% block body %}
+<TABLE>
+    <thead>
+        <tr>
+            <th>Class Name</th>
+            <th>Section</th>
+            <th>Subjects</th>
+           
+            </tr>
+        </thead>
+    <tbody>
+        {% for class in classes %}
+        <tr>
+            <td>{{class.class_name}}</td>
+            <td>{{class.section}}</td>
+            <td>
+<ul>
+                {% for subject in class.subject.all %}
+
+                <li>{{subject.subj_name}}</li>
+
+                {% endfor %}
+</ul>
+            </td>
+           
+        </tr>
+{% endfor %}</tbody>
+</TABLE>
+{% endblock %}
