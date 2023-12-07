@@ -1,0 +1,46 @@
+{% extends "./base.html" %}
+
+{% block style %}
+<style>
+   
+thead{
+    background-color: #3f87a6;
+    
+}
+tbody {
+    background-color: #e4f0f5;
+  }
+td,th {
+  border: 1px solid rgb(190, 190, 190);
+  padding: 5px 10px;
+}
+</style>
+{% endblock%}
+
+{% block body %}
+<TABLE>
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Class</th>
+            <th>Roll</th>
+            <th>DOB</th>
+            <th>Parents Name</th>
+            <th>Contact</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for std in stds %}
+        <tr>
+            <td>{{std.id}}</td>
+            <td>{{std.std_name}}</td>
+            <td>{{std.std_class}}</td>
+            <td>{{std.roll_no}}</td>
+            <td>{{std.D_O_B}}</td>
+            <td>{{std.parents_name}}</td>
+            <td>{{std.contact}}</td>
+        </tr>
+{% endfor %}</tbody>
+</TABLE>
+{% endblock %}
