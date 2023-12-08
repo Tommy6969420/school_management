@@ -5,7 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
-   
+        /* CSS for navbar */
+        .navbar {
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        .navbar a {
+          float: left;
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        .navbar a:hover {
+          background-color: #ddd;
+          color: black;
+        }
         thead{
             background-color: #3f87a6;
             
@@ -16,11 +34,21 @@
         td,th {
           border: 1px solid rgb(190, 190, 190);
           padding: 5px 10px;
-        }</style>
+        }
         {% block style %}
     {% endblock%}
+    </style>
+        
 </head>
 <body>
+
+       <!-- Navbar -->
+       <div class="navbar">
+        <a href="{% url "classes" %}">Classes</a>
+        <a href="{% url "students" %}">Students</a>
+        <a href="{% url "billing" %}">Billings</a>
+        <!-- <a href="#contact"></a> -->
+      </div>
     {%block body%}
     {%endblock%}
     {% block indiv %}

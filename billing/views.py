@@ -2,4 +2,4 @@ from django.shortcuts import render
 
 # Create your views here.
 def billing(request):
-    pass
+    return render(request,"billing/billing.html")
