@@ -24,7 +24,7 @@ class Student(models.Model):
     std_name=models.CharField(max_length=64)
     std_class=models.ForeignKey(Class ,on_delete=models.CASCADE)
     roll_no=models.IntegerField(default=0,null=False)
-    D_O_B=models.DateField()
+    D_O_B=models.DateField(default=timezone.now)
     admission_date=models.DateField(default=timezone.now)
     parents_name=models.CharField(max_length=64)
     contact=models.CharField(max_length=14)

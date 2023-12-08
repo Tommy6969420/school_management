@@ -7,10 +7,14 @@ class ClassBills(models.Model):
     monthly_fee=models.IntegerField()
     admissioin_fee=models.IntegerField()
     T_C_certificate_fee=models.IntegerField()
+    def __str__(self):
+        return self.indv_class,self.monthly_fee,self.admissioin_fee,self.T_C_certificate_fee
 
 class IndividualStudentFee(models.Model):
     class_wise=models.ForeignKey(ClassBills, on_delete=models.CASCADE)
     transportation=models.IntegerField(default=0)
+    def __str__(self):
+        return self.class_wise.indv_class,self.transportation,
 
 class Billing(models.Model):
     student_name=models.ForeignKey(Student,on_delete=models.CASCADE)

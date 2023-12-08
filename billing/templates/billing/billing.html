@@ -1,1 +1,48 @@
 {% extends "administrative/base.html" %}
+{% block indiv %}
+{%block doesnot_exist%}
+<h3>{{std_query}} </h3>
+{%endblock%}
+<form action="{% url 'billing' %}" method="post">
+{%csrf_token%}
+<input type="text" name="name" id="name">
+<input type="submit" value="submit">
+</form>
+
+<TABLE>
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Class</th>
+            <th>Roll</th>
+            <th>DOB</th>
+            <th>Parents Name</th>
+            <th>Contact</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for std in stds %}
+        <tr>
+            <td>{{std.id}}</td>
+            <td>{{std.std_name}}</td>
+            <td>{{std.std_class}}</td>
+            <td>{{std.roll_no}}</td>
+            <td>{{std.D_O_B}}</td>
+            <td>{{std.parents_name}}</td>
+            <td>{{std.contact}}</td>
+        </tr>
+        {% endfor %}
+</tbody>
+</TABLE>
+
+
+<script>
+  const inputField = document.getElementById("name");
+
+  inputField.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    inputField.value = inputField.value.toUpperCase();
+  });
+  </script>
+{% endblock %}

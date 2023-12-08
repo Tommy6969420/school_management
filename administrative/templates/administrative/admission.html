@@ -1,0 +1,37 @@
+{% extends "./base.html" %}
+
+{% block body %}
+
+{{sucess}}
+
+<form action="{% url 'admission_form' %}" method="post">
+
+    {% csrf_token %}
+
+{{form.as_div}}
+
+<button type="submit">
+    Submit
+</button>
+</form>
+
+<script>
+    const inputField = document.getElementById("id_std_name");
+    inputField.addEventListener("keyup", function(event) {
+      event.preventDefault();
+      inputField.value = inputField.value.toUpperCase();
+    });
+
+   
+    const parentsName = document.getElementById("id_parents_name");
+
+    parentsName.addEventListener("keyup", function(event) {
+      event.preventDefault();
+      parentsName.value = parentsName.value.toUpperCase();
+    });
+    </script>
+
+    </script>
+
+  
+{% endblock %}

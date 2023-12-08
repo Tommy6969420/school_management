@@ -8,7 +8,7 @@
         /* CSS for navbar */
         .navbar {
           overflow: hidden;
-          background-color: #333;
+          background-color: #3f87a6;
         }
         
         .navbar a {
@@ -47,12 +47,13 @@
         <a href="{% url "classes" %}">Classes</a>
         <a href="{% url "students" %}">Students</a>
         <a href="{% url "billing" %}">Billings</a>
+        <a href="{% url "admission_form" %}">Admission</a>
         <!-- <a href="#contact"></a> -->
       </div>
     {%block body%}
     {%endblock%}
     {% block indiv %}
-    
+    {% block doesnot_exist %}{% endblock %}
     {% endblock%}
 </body>
 </html>
