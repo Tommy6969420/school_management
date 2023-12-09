@@ -1,6 +1,25 @@
 {% extends "./base.html" %}
 
+{% block style %}
+
+.add{
+    background-color: #3f87a6;
+    text-decoration:none;
+    padding:10px;
+    margin:10px;
+}
+
+{% endblock %}
+
 {% block body %}
+
+<button class="add">
+    <a href="{%url 'add_class'%}">Add Class</a>
+</button>
+<button class="add">
+    <a href="{%url 'add_subj'%}">Add Subjects</a>
+</button>
+
 <TABLE>
     <thead>
         <tr>

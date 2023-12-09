@@ -43,26 +43,37 @@ def admission_form(request):
             "form":form,
         }
     return render(request,"administrative/admission.html",context)
-def subj_class_add(request):
+def subject_add(request):
+    form_subject=SubjectForm(request.POST)
+    if form_subject.is_valid():
+        form_subject.save()
+        form_subject=SubjectForm()
+        context={
+                "form_subject":form_subject,
+                "sucess":"Submit Sucess"
+            }
+        return render(request,"administrative/class_subject_add.html",context)
+    form_subject=SubjectForm()
+    context={
+                "form_subject":form_subject,
+                "unsucess":"Unsucessfull",
+        }
+    return render(request,"administrative/class_subject_add.html",context)
+def class_add(request):
     if request.method=='POST':
         form_class=ClassForm(request.POST)
-        form_subject=SubjectForm(request.POST)
-        if form_class.is_valid() and form_subject.is_valid():
+        if form_class.is_valid():
             form_class.save()
-            form_subject.save()
             form_class=ClassForm()
-            form_subject=SubjectForm()
             context={
                 "form_class":form_class,
-                "form_subject":form_subject,
                 "sucess":"Submit Sucess"
             }
             return render(request,"administrative/class_subject_add.html",context)
     form_class=ClassForm()
-    form_subject=SubjectForm()
     context={
                 "form_class":form_class,
-                "form_subject":form_subject,
+                # "form_subject":form_subject,
                 "unsucess":"Unsucessfull",
         }
     return render(request,"administrative/class_subject_add.html",context)
