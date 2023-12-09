@@ -3,11 +3,30 @@
 {%block doesnot_exist%}
 <h3>{{std_query}} </h3>
 {%endblock%}
+
+<h2>Note choose only one</h2>
+<div style="display:inline;">
 <form action="{% url 'billing' %}" method="post">
 {%csrf_token%}
-<input type="text" name="name" id="name">
+<label for="name">
+Name:
+</label><input type="text" name="name" id="name">
 <input type="submit" value="submit">
 </form>
+</div>
+<hr>
+<br>
+<hr>
+<div style="display:inline;" >
+<form action="{% url 'billing' %}" method="post">
+  {%csrf_token%}
+  <label for="class">
+ Class: 
+  </label> <input type="text" name="class" id="class">
+  <input type="submit" value="submit">
+  </form>
+</div>
+  
 
 <TABLE>
     <thead>

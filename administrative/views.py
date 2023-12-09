@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from.models import Student,Class
 from django.http import Http404
-from.forms import StudentForm
+from.forms import StudentForm,ClassForm,SubjectForm
 # Create your views here.
 def studentsinfo(request):
     stds=Student.objects.all()
@@ -43,3 +43,26 @@ def admission_form(request):
             "form":form,
         }
     return render(request,"administrative/admission.html",context)
+def subj_class_add(request):
+    if request.method=='POST':
+        form_class=ClassForm(request.POST)
+        form_subject=SubjectForm(request.POST)
+        if form_class.is_valid() and form_subject.is_valid():
+            form_class.save()
+            form_subject.save()
+            form_class=ClassForm()
+            form_subject=SubjectForm()
+            context={
+                "form_class":form_class,
+                "form_subject":form_subject,
+                "sucess":"Submit Sucess"
+            }
+            return render(request,"administrative/class_subject_add.html",context)
+    form_class=ClassForm()
+    form_subject=SubjectForm()
+    context={
+                "form_class":form_class,
+                "form_subject":form_subject,
+                "unsucess":"Unsucessfull",
+        }
+    return render(request,"administrative/class_subject_add.html",context)
