@@ -4,20 +4,25 @@
 
 .add{
     background-color: #3f87a6;
-    text-decoration:none;
     padding:10px;
     margin:10px;
+    box-shadow: none;
+    border-radius: 13%;
 }
+.btn_txt{
+    color:white;
+    text-decoration: none;
 
+}
 {% endblock %}
 
 {% block body %}
 
 <button class="add">
-    <a href="{%url 'add_class'%}">Add Class</a>
+    <a href="{%url 'add_class'%}" class="btn_txt">Add Class</a>
 </button>
 <button class="add">
-    <a href="{%url 'add_subj'%}">Add Subjects</a>
+    <a href="{%url 'add_subj'%}" class="btn_txt">Add Subjects</a>
 </button>
 
 <TABLE>

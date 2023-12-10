@@ -11,7 +11,8 @@ class SubjectForm(ModelForm):
         fields="__all__"
     
 class ClassForm(ModelForm):
-        class Meta:
-            model=Class
-            fields="__all__"
+    class Meta:
+        model=Class
+        fields="__all__"
+
           

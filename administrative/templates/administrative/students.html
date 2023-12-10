@@ -1,11 +1,26 @@
 {% extends "./base.html" %}
 
 {% block style %}
+.add{
+    background-color: #3f87a6;
+    padding:10px;
+    margin:10px;
+    box-shadow: none;
+    border-radius: 13%;
+}
+.btn_txt{
+    color:white;
+    text-decoration: none;
 
+}
 
 {% endblock%}
 
+
 {% block body %}
+<button class="add">
+    <a href="{%url 'admission_form'%}" class="btn_txt">Add Student</a>
+</button>
 <TABLE>
     <thead>
         <tr>
