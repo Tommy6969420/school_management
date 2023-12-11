@@ -1,8 +1,13 @@
 {% extends "administrative/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
 {% block style %}
 .billing_form > div{
     padding:10px;
 }
+{% endblock %}
+{% block scripts %}
+
 {% endblock %}
 {% block body %}
 
@@ -42,12 +47,23 @@
 
 <form action="{%url 'billing' %}" method="post" class="billing_form">
 
-{{form.as_div}}
+{{form|crispy}}
 
 
     <input type="submit" value="Submit">
 
 </form>
+
+<script>
+
+    $(document).ready(function() {
+        $('#id_student').select2();
+    }); 
+    $(document).ready(function() {
+        $('#id_transportation').select2();
+    }); 
+    
+</script>
 
 
 {% endblock %}

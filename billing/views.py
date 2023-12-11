@@ -9,7 +9,7 @@ def search_filter(request):
         std_name=request.POST.get("name")
         if std_name==True:
             try:
-                std=Student.objects.all().filter(std_name=std_name)
+                std=Student.objects.all().filter(name__startswith=std_name)
                 context={
                 "stds":std,   
                 }
