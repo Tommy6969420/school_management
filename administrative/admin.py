@@ -12,10 +12,11 @@ class ClassAdmin(admin.ModelAdmin):
     ]
     fields=[("class_name","section"),"subject"]
 class StudentAdmin(admin.ModelAdmin):
-    list_display=["std_name","std_class","D_O_B"]
+    list_display=["std_name","std_class","roll_no"]
     list_filter=[
         "std_name","std_class",
     ]
+    ordering=("roll_no",)
     search_fields = ['std_name','std_class', ]
     fields=[("std_name","std_class"),"roll_no",("D_O_B","admission_date"),("parents_name","contact")]
 admin.site.register(Class,ClassAdmin)

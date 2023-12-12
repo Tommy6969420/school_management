@@ -29,4 +29,4 @@ class Student(models.Model):
     parents_name=models.CharField(max_length=64)
     contact=models.CharField(max_length=14)
     def __str__(self):
-        return f"{self.std_name} , {self.roll_no}"
+        return f"{self.std_name}"
