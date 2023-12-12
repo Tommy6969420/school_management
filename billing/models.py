@@ -7,9 +7,8 @@ class TransportRoutes(models.Model):
     transport_fee=models.IntegerField(blank=False,null=False)
     def __str__(self):
         return f"Route: {self.route} Transport Fee:{self.transport_fee}"
-    
 class ClassBills(models.Model):
-    indv_class= models.OneToOneField(Class,on_delete=models.CASCADE,unique=True)
+    indv_class= models.ForeignKey(Class,on_delete=models.CASCADE,)
     admissioin_fee=models.IntegerField(default=0,blank=True,null=True)
     monthly_fee=models.IntegerField(default=0,blank=True,null=True)
     def __str__(self):

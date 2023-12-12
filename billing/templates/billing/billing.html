@@ -11,7 +11,7 @@
 {% endblock %}
 {% block body %}
 
-<form action="{% url "std_search" %}" method="get">
+<form action="{% url "std_search" %}" method="get" style="display:none;">
 <input type="number" id="inp_get"   name="student_id">
 <input type="submit" value="submit">
 </form>
@@ -33,19 +33,20 @@
     </thead>
         
     <tbody>
-        {% for class_bill in class_bills %}
+      
         <tr>
-            <td>
-                {{class_bill.indv_class}}
+            <td id="tbl_class">
+             
             </td>
-            <td>
-                {{class_bill.admissioin_fee}}
+            <td id="tbl_admission">
+              
             </td>
-            <td>
-                {{class_bill.monthly_fee}}
+            <td id="tbl_montly">
+              
             </td>
+          
         </tr>
-        {% endfor %}
+       
     </tbody>
 </table>
 
