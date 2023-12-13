@@ -13,9 +13,7 @@
 
 <form action="{% url "std_search" %}" method="get" style="display:none;">
 <input type="number" id="inp_get"   name="student_id">
-<input type="submit" value="submit">
 </form>
-
 
 <table>
     <thead>
@@ -52,12 +50,48 @@
 
 
 
-<form action="{%url 'billing' %}" method="post" class="billing_form">
+<table>
+    <thead>
+        <tr>
+            <th>
+                Previous Recipt NO
+            </th>
+            <th>
+                Previous Due
+            </th>
+            <th>
+                Previous Billing Date
+            </th>
+        </tr>
+    </thead>
+        
+    <tbody>
+      
+        <tr>
+            <td id="previous_recipt">
+             
+            </td>
+            <td id="previous_due">
+              
+            </td>
+            <td id="previous_billing_date">
+              
+            </td>
+          
+        </tr>
+       
+    </tbody>
+</table>
 
-{{form|crispy}}
+{{success}}
+
+<form action="{%url 'billing' %}" method="post" class="billing_form" >
+{% csrf_token %}
+ {% comment %} {{form.as_table}}  {% endcomment %}
+ {{form|crispy}}  
 
 
-<input type="submit" value="Submit">
+<input type="submit" value="Submit" >
 
 </form>
 

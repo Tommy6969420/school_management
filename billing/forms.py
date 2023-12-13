@@ -1,10 +1,13 @@
-from django.forms import ModelForm
-from.models import Billing, ClassBills
-class BillingForm(ModelForm):
+from django import forms
+from.models import Billing, ClassBills,Months
+
+
+class BillingForm(forms.ModelForm):
+     # months = forms.MultipleChoiceField(choices=)
      class Meta:
          model=Billing
          fields="__all__"
-class ClassBillsForm(ModelForm):
+class ClassBillsForm(forms.ModelForm):
      class Meta:
           model=ClassBills
           fields="__all__"

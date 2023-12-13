@@ -30,3 +30,5 @@ class Student(models.Model):
     contact=models.CharField(max_length=14)
     def __str__(self):
         return f"{self.std_name}"
+    class Meta:
+        unique_together=["roll_no","std_name"]
