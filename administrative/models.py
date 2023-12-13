@@ -31,4 +31,4 @@ class Student(models.Model):
     def __str__(self):
         return f"{self.std_name}"
     class Meta:
-        unique_together=["roll_no","std_name"]
+        unique_together=["roll_no","std_class"]

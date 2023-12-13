@@ -43,10 +43,15 @@ def get_student_info(request):
     class_obj=ClassBills.objects.get(indv_class_id=obj.std_class.id)
     due_obj=Billing.objects.filter(student_id=student_id).order_by("-recipt_no")
     prev_due=due_obj.order_by("-recipt_no").values("recipt_no","due","date_of_billing")[:1]
-    for item in prev_due:
-        receipt_number = item['recipt_no']
-        due_amount = item['due']
-        billing_date = item['date_of_billing']
+    try:
+        for item in prev_due:
+            receipt_number = item['recipt_no']
+            due_amount = item['due']
+            billing_date = item['date_of_billing']
+    except:
+        receipt_number=0
+        due_amount=0
+        billing_date=0
     payload={
                 "name":obj.std_name,
                 "class":obj.std_class.class_name,

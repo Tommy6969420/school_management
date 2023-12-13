@@ -41,6 +41,7 @@ def admission_form(request):
     form=StudentForm()
     context={
             "form":form,
+            "unsucess":"Admission Unsucessfull"
         }
     return render(request,"administrative/admission.html",context)
 def subject_add(request):

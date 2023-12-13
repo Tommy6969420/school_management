@@ -37,6 +37,10 @@ fetch(url)
 ).catch(error => {
 console.error('There was a problem with the fetch operation:', error);
 });}
+
+// API WORK FINISHED
+
+// IMPLEMENTING TRANSPORTATION AS INT
 var id_transp=document.getElementById("id_transportation")
 var transp,transp_id_val,transportation_fee
 id_transp.onchange=function () {
@@ -45,9 +49,14 @@ transp=id_transp.innerText;
 arr_transp=transp.split("\n");
 transportation_fee=parseInt(arr_transp.slice(transp_id_val-1,transp_id_val))
 console.log(transportation_fee);
-
 }
-document.getElementById("id_total").addEventListener("click",()=>{
+
+// IMPLEMENTING GET TOTAL AND DUES
+let id_total=document.getElementById("id_total")
+let id_paid=document.getElementById("id_paid")
+let id_due=document.getElementById("id_due")
+
+id_total.addEventListener("click",()=>{
     let admission_fee=parseFloat(document.getElementById("id_admission").value);
     let monthly_fee=parseFloat(document.getElementById("id_monthly").value);
     let tc_certificate_fee=parseFloat(document.getElementById("id_T_C_certificate_fee").value);
@@ -56,10 +65,9 @@ document.getElementById("id_total").addEventListener("click",()=>{
     let sum=admission_fee+monthly_fee+tc_certificate_fee+others+prev_due+transportation_fee;
     document.getElementById("id_total").value=sum;
 })
-document.getElementById("id_total").addEventListener("select",sum_total_select())
-document.getElementById("id_total").addEventListener("mouseover",sum_total_select())
+id_total.addEventListener("select",sum_total_select())
+id_total.addEventListener("mouseover",sum_total_select())
 function sum_total_select(){
-
 document.getElementById("id_total").onselect= function (){
     let admission_fee=parseFloat(document.getElementById("id_admission").value)
     let monthly_fee=parseFloat(document.getElementById("id_monthly").value)
@@ -67,5 +75,10 @@ document.getElementById("id_total").onselect= function (){
     let others=parseFloat(document.getElementById("id_others").value)
     let prev_due=parseFloat(previous_due.value)
     let sum=admission_fee+monthly_fee+tc_certificate_fee+others+prev_due+transportation_fee
-    document.getElementById("id_total").value=sum
+    id_total.value=sum
 }}
+
+id_paid.addEventListener("input",()=>{
+    id_due.value=parseInt(id_total.value)-parseInt(id_paid.value)
+
+})
