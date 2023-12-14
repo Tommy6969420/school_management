@@ -41,18 +41,19 @@ def get_student_info(request):
         # print(str(student_id))
     obj=Student.objects.get(id=student_id)
     class_obj=ClassBills.objects.get(indv_class_id=obj.std_class.id)
+    # due_obj=Billing.objects.filter(student_id=student_id).order_by("-recipt_no")
+    # prev_due=due_obj.order_by("-recipt_no").values("recipt_no","due","date_of_billing")[:1]
     due_obj=Billing.objects.filter(student_id=student_id).order_by("-recipt_no")
     prev_due=due_obj.order_by("-recipt_no").values("recipt_no","due","date_of_billing")[:1]
-    try:
-        for item in prev_due:
+    for item in prev_due:
             receipt_number = item['recipt_no']
             due_amount = item['due']
             billing_date = item['date_of_billing']
-    except:
-        receipt_number=0
-        due_amount=0
-        billing_date=0
-    payload={
+    
+        
+    
+    try:
+        payload={
                 "name":obj.std_name,
                 "class":obj.std_class.class_name,
                 "admission_fee":class_obj.admissioin_fee,
@@ -62,7 +63,20 @@ def get_student_info(request):
                 "billing_date":billing_date,
                   
                 }
-    return JsonResponse({   
+    except UnboundLocalError :
+        receipt_number=0
+        due_amount=0
+        billing_date=0
+        payload={
+                "name":obj.std_name,
+                "class":obj.std_class.class_name,
+                "admission_fee":class_obj.admissioin_fee,
+                "monthly_fee":class_obj.monthly_fee,
+                "recipt_no":receipt_number,
+                "due_amount":due_amount,
+                "billing_date":billing_date,                  
+                }                                   
+    return JsonResponse({                                                                                                                   
             'status':True,
             "payload":payload,
         })
