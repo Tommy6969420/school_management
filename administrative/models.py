@@ -23,7 +23,7 @@ class Class(models.Model):
 class Student(models.Model):
     std_name=models.CharField(max_length=64)
     std_class=models.ForeignKey(Class ,on_delete=models.CASCADE)
-    roll_no=models.IntegerField(default=0,null=False)
+    roll_no=models.IntegerField(default=False,null=False,blank=False)
     D_O_B=models.DateField(default=timezone.now)
     admission_date=models.DateField(default=timezone.now)
     parents_name=models.CharField(max_length=64)

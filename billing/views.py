@@ -41,8 +41,6 @@ def get_student_info(request):
         # print(str(student_id))
     obj=Student.objects.get(id=student_id)
     class_obj=ClassBills.objects.get(indv_class_id=obj.std_class.id)
-    # due_obj=Billing.objects.filter(student_id=student_id).order_by("-recipt_no")
-    # prev_due=due_obj.order_by("-recipt_no").values("recipt_no","due","date_of_billing")[:1]
     due_obj=Billing.objects.filter(student_id=student_id).order_by("-recipt_no")
     prev_due=due_obj.order_by("-recipt_no").values("recipt_no","due","date_of_billing")[:1]
     for item in prev_due:

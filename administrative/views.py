@@ -27,10 +27,11 @@ def studentfilter(request,id):
     }
     return render(request,"administrative/students_id.html",context)
 def admission_form(request):
-    
     if request.method=="POST":
         form=StudentForm(request.POST)
         if form.is_valid():
+           # roll_no=str(form["roll_no"].value())
+            # if roll_no 
             form.save()
             form=StudentForm()
             context={
@@ -38,11 +39,16 @@ def admission_form(request):
                 "sucess":"Admission Submit Sucess"
             }
             return render(request,"administrative/admission.html",context)
+    # roll_no=Student.objects.values("roll_no").order_by("-roll_no")[:1]
+
+    # for item in roll_no:
+    #     roll=item["roll_no"]
     form=StudentForm()
     context={
             "form":form,
-            "unsucess":"Admission Unsucessfull"
+            # "def_roll":roll,
         }
+    
     return render(request,"administrative/admission.html",context)
 def subject_add(request):
     form_subject=SubjectForm(request.POST)

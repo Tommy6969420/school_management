@@ -1,9 +1,8 @@
 {% extends "./base.html" %}
 {% load crispy_forms_tags %}
 {% block body %}
-
+<p id="def_roll" style="display:none;">{{def_roll}}</p>
 {{sucess}}
-{{unsucess}}
 <form action="{% url 'admission_form' %}" method="post">
 
     {% csrf_token %}
@@ -29,6 +28,8 @@
       event.preventDefault();
       parentsName.value = parentsName.value.toUpperCase();
     });
+    //let roll=document.getElementById("id_roll_no");
+    //let def_roll=parseInt(document.getElementById("def_roll").innerText;)
     </script>
 
     </script>

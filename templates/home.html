@@ -1,0 +1,23 @@
+{% extends "administrative/base.html" %}
+
+{% block body %}
+<h3>Total no of Classes: {{classes_list}}</h3>
+<h3>Total Students: {{std_no}}</li>
+</h3>
+<h3>Class Bills: <ul>
+        {% for class_bill in class_bills %}
+        <li>{{class_bill.indv_class}}:{{class_bill.admissioin_fee}}:{{class_bill.monthly_fee}}</li>
+        {% endfor %}
+    </ul>
+</h3>
+<h3>No of billings: {{billings}}</h3>
+<h3>Transport Routes: <ul>
+        {% for transp_rout in transp_routes %}
+
+        <li>{{transp_rout.route}}:{{transp_rout.transport_fee}}</li>
+        {% endfor %}
+    </ul>
+</h3>
+
+
+{%endblock%}
